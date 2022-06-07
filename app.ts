@@ -2,10 +2,14 @@ import { Application, Request, Response} from "express";
 import { createServer } from "http"
 import { Server } from "socket.io"
 import express = require("express");
+import {Express} from 'express-serve-static-core';
 
-const app: Application = express();
 
-app.use(express.json());
+const app: Express = express();
+
+const connectionList = [];
+
+//app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get(
